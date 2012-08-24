@@ -1,0 +1,18 @@
+Triage challenge app - Holly and Rick's notes
+
+1. Data model
+
+Participant
+	name:string
+	position:integer
+	triages:integer
+	
+rails generate scaffold Participant name:string position:integer
+
+2. Weekly, run a task that sends an email
+Task performs logic to figure what email to send
+- Which participant is on assignment
+	sort by triages asc, position asc, limit:1
+	increment that participant's triages value by 1
+- Build email contents
+- Send email to product_team@mediamath.com and ppo@mediamath.com

@@ -4,6 +4,7 @@
   <tr>
     <th>Name</th>
     <th>Position</th>
+	<th>Triages</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +14,7 @@
   <tr>
     <td><%= participant.name %></td>
     <td><%= participant.position %></td>
+	<td><%= participant.triages %></td>
     <td><%= link_to 'Show', participant %></td>
     <td><%= link_to 'Edit', edit_participant_path(participant) %></td>
     <td><%= link_to 'Destroy', participant, confirm: 'Are you sure?', method: :delete %></td>

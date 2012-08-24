@@ -41,6 +41,7 @@ class ParticipantsController < ApplicationController
   # POST /participants.json
   def create
     @participant = Participant.new(params[:participant])
+	@participant.triages = 0
 
     respond_to do |format|
       if @participant.save
