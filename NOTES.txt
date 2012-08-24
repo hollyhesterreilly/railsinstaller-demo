@@ -9,6 +9,11 @@ Participant
 	
 rails generate scaffold Participant name:string position:integer
 
+to add triages attribute, we need to generate a migration.
+	rails generate migration add_triages_to_participants triages:integer
+because we added this after, we have to change the view file
+	add table header (<th>) and <td> to index.html
+
 2. Weekly, run a task that sends an email
 Task performs logic to figure what email to send
 - Which participant is on assignment
