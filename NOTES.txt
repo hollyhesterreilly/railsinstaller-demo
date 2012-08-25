@@ -7,7 +7,7 @@ Participant
 	position:integer
 	triages:integer
 	
-rails generate scaffold Participant name:string position:integer
+	rails generate scaffold Participant name:string position:integer
 
 to add triages attribute, we need to generate a migration.
 	rails generate migration add_triages_to_participants triages:integer
@@ -15,6 +15,10 @@ because we added this after, we have to change the view file
 	add table header (<th>) and <td> to index.html
 
 2. Weekly, run a task that sends an email
+Trying this in EngineYard with cron job - 
+
+	cd /data/triage_email_app/current && bundle exec rails runner -e production 'TriageTask.run'
+
 Task performs logic to figure what email to send
 - Which participant is on assignment
 	sort by triages asc, position asc, limit:1
