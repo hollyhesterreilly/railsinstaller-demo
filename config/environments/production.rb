@@ -66,17 +66,21 @@ RailsinstallerDemo::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   
    # Set up to send mail
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-    :domain               => "ec2-23-23-103-186.compute-1.amazonaws.com",
-    :user_name            => "hollyhesterreilly@gmail.com",
-    :password             => "skater2012",
-    :authentication       => "plain",
-    :enable_starttls_auto => true,
-    :openssl_verify_mode => 'none'
-  }
+  
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.sendmail_settings = {:arguments => "-i"}
+#   
+#   config.action_mailer.perform_deliveries = true
+#   config.action_mailer.raise_delivery_errors = true
+#   config.action_mailer.delivery_method = :smtp
+#   config.action_mailer.smtp_settings = {
+#     :address              => "smtp.gmail.com",
+#     :port                 => 587,
+#     :domain               => "ec2-23-23-103-186.compute-1.amazonaws.com",
+#     :user_name            => "hollyhesterreilly@gmail.com",
+#     :password             => "skater2012",
+#     :authentication       => "plain",
+#     :enable_starttls_auto => true,
+#     :openssl_verify_mode => 'none'
+#   }
 end
