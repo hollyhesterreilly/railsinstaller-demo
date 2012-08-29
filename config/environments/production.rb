@@ -64,4 +64,20 @@ RailsinstallerDemo::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  
+   # Set up to send mail
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+	:port                 => 587, #specific to gmail config
+    :domain               => "gmail.com",
+    :user_name            => "holly.hesterreilly@gmail.com",
+    :password             => "skater2012",
+    :authentication       => "plain",
+    :enable_starttls_auto => true,
+    :openssl_verify_mode => 'none'
+  }
+  config.action_mailer.logger = Logger.new(config.paths.log.first)
 end
