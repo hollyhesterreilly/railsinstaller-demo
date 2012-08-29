@@ -8,6 +8,6 @@ class TriageTask
 		@assignee.triages += 1 #means same as @assignee.triages = assignee.triages + 1
 		@assignee.save
 		#Build and send email contents
-		TriageMailer.send_triage_mail @assignee
+		TriageMailer.send_triage_mail(@assignee).deliver
 	end
 end
