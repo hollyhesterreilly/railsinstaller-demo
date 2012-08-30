@@ -8,7 +8,7 @@ class TriageTask
 		@assignee.triages += 1 #means same as @assignee.triages = assignee.triages + 1
 		@assignee.save
 		#which picture to show in email. First, see if there are any pictures that haven't been used for the assigned participants
-		assignee_pics = @assignee.pictures.where :uses=> 0
+		assignee_pics = @assignee.pictures.where :uses => 0
 		if assignee_pics.size > 0
 				@selected_picture = assignee_pics[rand(assignee_pics.size)]
 				@selected_picture.uses += 1
@@ -17,6 +17,6 @@ class TriageTask
 			# for now, if none associated, don't send a picture
 		end
 		#Build and send email contents
-		TriageMailer.send_triage_mail(@assignee).deliver
+		TriageMailer.send_triage_mail(@assignee, @selected_picture).deliver
 	end
 end

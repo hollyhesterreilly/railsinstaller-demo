@@ -5,7 +5,9 @@
   </head>
   <body>
     <h1>It's <%= @assignee.name %>'s turn!</h1>
-    <p> <img src="<%= @selected_picture %>"/>
+    <% if @selected_picture %>
+      <p> <img src="<%= @selected_picture %>"/>
+    <% end %>
     </p>
     <p>This message was sent by the MediaMath Product Triage Emailer. Check it out here: <a href="http://ec2-23-23-103-186.compute-1.amazonaws.com/participants">Participant List</a></p>
   </body>
