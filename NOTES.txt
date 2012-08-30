@@ -25,3 +25,29 @@ Task performs logic to figure what email to send
 	increment that participant's triages value by 1
 - Build email contents
 - Send email to product_team@mediamath.com and ppo@mediamath.com
+
+Feature/pictures
+- we want to add the ability to insert a picture into the email
+- the user can enter a url where a picture is
+- the user can associate 0 or many names with that picture
+
+Data model for this:
+- url where pictures are
+- participants may be associated with pictures
+- whether picture has been used
+
+Picture
+	url:string
+	uses:integer
+	
+	rails generate scaffold Picture url:string uses:integer
+	
+-we'll also need to associate them. we can use rails habtm associations:
+	class Participant < ActiveRecord::Base
+	  has_and_belongs_to_many :pictures
+	end
+	 
+	class Picture < ActiveRecord::Base
+	  has_and_belongs_to_many :participants
+	end
+this creates models, but we need those to be connected to tables, so we have to create a migration

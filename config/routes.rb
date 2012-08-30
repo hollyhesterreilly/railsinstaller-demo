@@ -1,4 +1,6 @@
 RailsinstallerDemo::Application.routes.draw do
+  resources :pictures
+
   resources :participants
 
   get "welcome/index"
