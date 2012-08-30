@@ -15,10 +15,14 @@
     <%= f.label :url %><br />
     <%= f.text_field :url %>
   </div>
-  <div class="field">
-    <%= f.label :uses %><br />
-    <%= f.number_field :uses %>
-  </div>
+  
+  <% for participant in Participant.find(:all) %>
+        <div>
+                <%= check_box_tag "picture[participant_ids][]", participant.id, @picture.participants.include?(participant) %>
+                <%= participant.name %>
+        </div>
+   <% end %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
