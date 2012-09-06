@@ -13,15 +13,16 @@ class TriageTask
 		assignee_pics = @assignee.pictures.where :uses => 0
 		if assignee_pics.size > 0
 				@selected_picture = assignee_pics[rand(assignee_pics.size)]
+				# increment picture usage count and save selected picture
+				@selected_picture.uses += 1
+				@selected_picture.save
 				
 		else 
 			# for now, if none associated, don't send a picture
 			# check if there are unused pics in the general pool - ie not assigned to any specific participants, and also where :uses => 0
 			# general_pics = pictures.where "participant_id IS NULL"
 		end
-		# increment picture usage count and save selected picture
-		@selected_picture.uses += 1
-		@selected_picture.save
+	
 		
 		#Build and send email contents
 		TriageMailer.send_triage_mail(@assignee, @selected_picture).deliver
