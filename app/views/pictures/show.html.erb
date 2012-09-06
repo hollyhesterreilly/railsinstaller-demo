@@ -3,13 +3,22 @@
 	<img src="<%= @picture.url %>"/>
 </p>
 <p>
-  <b>Url:</b>
+  <b>URL:</b>
   <%= @picture.url %>
 </p>
 
 <p>
   <b>Uses:</b>
   <%= @picture.uses %>
+</p>
+
+<p>
+  <b>Participants:</b>
+  <ul>
+  <% @picture.participants.each do |participant| %>
+  <li><%= participant.name %></li>
+  <% end %>
+  </ul>
 </p>
 
 

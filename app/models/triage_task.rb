@@ -17,7 +17,7 @@ class TriageTask
 		else 
 			# for now, if none associated, don't send a picture
 			# check if there are unused pics in the general pool - ie not assigned to any specific participants, and also where :uses => 0
-			# unused_general_pics = pictures.where 
+			# general_pics = pictures.where "participant_id IS NULL"
 		end
 		# increment picture usage count and save selected picture
 		@selected_picture.uses += 1
