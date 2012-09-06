@@ -51,3 +51,5 @@ Picture
 	  has_and_belongs_to_many :participants
 	end
 this creates models, but we need those to be connected to tables, so we have to create a migration. we use the command line to do this, and it creates the participants_pictures migration file in the db folder.
+
+	#mail :to => "product_team@mediamath.com", :cc => "ppo@mediamath.com, hollyhesterreilly@gmail.com", :subject => "Product Request Triage goes to..."
