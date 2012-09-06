@@ -12,9 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :url %><br />
+   <p> At what URL can we can find this picture?</p>
     <%= f.text_field :url %>
   </div>
+  
+  <p>Which triagers can this picture be associated with?</p> 
   
   <% for participant in Participant.find(:all) %>
         <div>
@@ -22,6 +24,8 @@
                 <%= participant.name %>
         </div>
    <% end %>
+   
+  <p>If you check no boxes, we'll put the picture in a general pool and use it when a triager has no new pictures associated with them.</p>
   
   <div class="actions">
     <%= f.submit %>
